@@ -1,0 +1,68 @@
+<div class="wrapper-body">
+  <div class=" interface columns">
+    <div class="first-column column is-two-fifths">
+      <form [formGroup]="form" (ngSubmit)="complete()">
+        <div class="field input-wraper" *ngIf="typeComponent === 'edit'">
+          <div class="label-wrapper" >
+            <label class="">Identification</label>
+          </div>
+          <div class="control has-icons-left has-icons-right">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Id</mat-label>
+              <input type="text" matInput disabled value="{{idUser}}">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="field input-wraper">
+          <div class="label-wrapper">
+            <label class="">Nombre</label>
+          </div>
+          <div class="control has-icons-left has-icons-right">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Nombre</mat-label>
+              <input type="text" matInput formControlName="name" [errorStateMatcher]="matcher">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="field select-wraper">
+          <div class="label-wrapper">
+            <label class="">Roles</label>
+          </div>
+          <div class="control has-icons-left has-icons-right">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Rol Seleccionado</mat-label>
+              <mat-select color="black" formControlName="role" >
+                <mat-option *ngFor="let rol of listRol" [value]="rol.id">
+                  {{rol.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="field  input-wraper">
+          <div class="label-wrapper">
+            <label class="">Activo</label>
+          </div>
+          <mat-slide-toggle formControlName="active" >
+          </mat-slide-toggle>
+        </div>
+      </form>
+    </div>
+    <div class="second-column column">
+      <div class="headers columns">
+        <div class="titles column is-8">
+          <div class="title" *ngIf="typeComponent == 'create'">Creacion de usuarios</div>
+          <div class="title" *ngIf="typeComponent == 'edit'">Actualizacion de usuarios</div>
+        </div>
+        <div class="return column is-2">
+          <button mat-raised-button (click)="return()"  >volver</button>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button mat-raised-button (click)="complete()"  color="warn">Completar</button>
+      </div>
+    </div>
+  </div>
+
+</div>

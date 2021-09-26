@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div class=" interface">
+    <div class="first-column ">
+
+      <div class="wrapper">
+        <div class="label-wrapper">
+          <label class=""> {{title}}</label>
+        </div>
+        <div class="wrapper-selector columns">
+          <div class="" [ngClass]="{ 'content-body-simple': template=='simple'}" *ngFor="let option of listOption">
+            <div class="content column is-half" (click)="typeOption(option)">
+              <ng-container [ngSwitch]="template">
+                <ng-container *ngSwitchCase="'simple'" [ngTemplateOutlet]="simple"></ng-container>
+              </ng-container>
+              <ng-template #simple>
+                <div class="title-wrapper">{{option.label}}</div>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

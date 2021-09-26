@@ -1,0 +1,21 @@
+.wrapper-body {
+  height: 88vh;
+  width: 100vw;
+  .interface {
+    height: 80%;
+    width: 80%;
+    margin-left: 10vw;
+    margin-top: 10vh;
+    border: 2px solid white;
+    overflow: hidden;
+    border-radius: 2em;
+    .first-column {
+      padding: 2em;
+      background: #512d6d;
+      color: white;
+    }
+    .second-column {
+      background: white;
+    }
+  }
+}

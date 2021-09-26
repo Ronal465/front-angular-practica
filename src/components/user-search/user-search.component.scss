@@ -1,0 +1,61 @@
+$color-primary: #512d6d;
+.wrapper {
+  height: 88vh;
+  width: 100vw;
+  .interface {
+    height: 80%;
+    width: 80%;
+    margin-left: 10vw;
+    margin-top: 10vh;
+    background:#DE8971;
+    border: 2px solid white;
+    overflow: hidden;
+    border-radius: 2em;
+    .first-column {
+      color: white;
+      height : 100%;
+      width: 100%;
+      .wrapper-selector {
+        height : 100%;
+        width: 100%;
+        margin-top: 2%;
+        background-color: #7B6079;
+        .content-body-simple {
+          padding: 1em;
+
+          .content {
+            color: white;
+            background:#A7D0CD;
+            height:10vh;
+            width: 18vw;
+            font-size:2em;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid white;
+            display: table;
+            top: 0;
+            left: 0;
+            .title-wrapper{
+              display: table-cell;
+              vertical-align: middle;
+
+            }
+          }
+        }
+
+      }
+      .label-wrapper {
+        font-size:2rem;
+          margin: 2em;
+        color: white;
+      }
+
+
+    }
+    .second-column {
+      background: white;
+    }
+  }
+
+}
+

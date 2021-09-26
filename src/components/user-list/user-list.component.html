@@ -1,0 +1,62 @@
+<div class="wrapper-body">
+  <div class=" interface columns">
+    <div class="first-column column is-three-quarters">
+      <table mat-table [dataSource]="listUser" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Identificador </th>
+          <td mat-cell *matCellDef="let user"> {{user.id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Nombres </th>
+          <td mat-cell *matCellDef="let user"> {{user.name}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="rol">
+          <th mat-header-cell *matHeaderCellDef> Rol </th>
+          <td mat-cell *matCellDef="let user"> {{user.role.name}} </td>
+        </ng-container>
+
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Acciones </th>
+          <td mat-cell *matCellDef="let user">
+            <button mat-raised-button (click)="delete(user)"  color="primary">
+              Borrar
+              <mat-icon>clear</mat-icon>
+            </button>
+            <button mat-raised-button (click)="edit(user)" color="accent">
+              Actualizar
+              <mat-icon>update</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+    </div>
+    <div class="second-column column">
+      <div class="title">Lista de usuarios</div>
+      <h2>Buscador</h2>
+      <div class="input-wrapper">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Campo de Busqueda</mat-label>
+          <input  [(ngModel)]="textSearch" type="text" matInput >
+        </mat-form-field>
+      </div>
+      <div class="buttons-input-wrapper">
+        <button class="colum"  (click)="search()"  mat-raised-button color="warn" >Buscar</button>
+        <button class="colum" (click)="clear()"mat-raised-button color="warn">Limpiar</button>
+      </div>
+      <div class="buttons">
+        <button mat-raised-button  (click)="return()" >Volver</button>
+      </div>
+    </div>
+  </div>
+</div>
