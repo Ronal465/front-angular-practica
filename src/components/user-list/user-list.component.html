@@ -20,12 +20,17 @@
           <td mat-cell *matCellDef="let user"> {{user.role.name}} </td>
         </ng-container>
 
+        <!-- Name Column -->
+        <ng-container matColumnDef="active">
+          <th mat-header-cell *matHeaderCellDef> Estado </th>
+          <td mat-cell *matCellDef="let user"> {{getStatus(user.active)}}   </td>
+        </ng-container>
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef> Acciones </th>
           <td mat-cell *matCellDef="let user">
-            <button mat-raised-button (click)="delete(user)"  color="primary">
+            <button mat-raised-button (click)="delete(user)" color="primary">
               Borrar
               <mat-icon>clear</mat-icon>
             </button>
@@ -47,15 +52,15 @@
       <div class="input-wrapper">
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Campo de Busqueda</mat-label>
-          <input  [(ngModel)]="textSearch" type="text" matInput >
+          <input [(ngModel)]="textSearch" type="text" matInput>
         </mat-form-field>
       </div>
       <div class="buttons-input-wrapper">
-        <button class="colum"  (click)="search()"  mat-raised-button color="warn" >Buscar</button>
-        <button class="colum" (click)="clear()"mat-raised-button color="warn">Limpiar</button>
+        <button class="colum" (click)="search()" mat-raised-button color="warn">Buscar</button>
+        <button class="colum" (click)="clear()" mat-raised-button color="warn">Limpiar</button>
       </div>
       <div class="buttons">
-        <button mat-raised-button  (click)="return()" >Volver</button>
+        <button mat-raised-button (click)="return()">Volver</button>
       </div>
     </div>
   </div>

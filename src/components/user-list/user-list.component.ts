@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserListComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'rol', 'action'];
+  displayedColumns: string[] = ['id', 'name', 'rol', 'active','action'];
 
   public listUser: User[] = [];
   public textSearch: string = '';
@@ -68,7 +68,7 @@ export class UserListComponent implements OnInit {
     })
   }
   edit(user: User) {
-    this.router.navigate([this.router.url.replace("list","edit") + '/edit/' + user.id]);
+    this.router.navigate([this.router.url.replace("list", "edit") + '/edit/' + user.id]);
   }
   return() {
     this.location.back();
@@ -96,5 +96,9 @@ export class UserListComponent implements OnInit {
     ).finally(() => {
       this.ref.markForCheck();
     })
+  }
+
+  getStatus(status: string) :string{
+    return status === 'active' ? "Activo" : status === 'inactive' ? "Inactivo" : '';
   }
 }
